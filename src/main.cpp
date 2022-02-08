@@ -29,7 +29,10 @@ void setupWifi() {
     }
   }
   Serial.print("\nWIFI Connected with IP:"); Serial.println(WiFi.localIP());
-
+  u8x8.clearDisplay();
+  u8x8.drawString(0, 1, "IP: ");
+  u8x8.setCursor(0, 2);
+  u8x8.print(WiFi.localIP().toString());
 }
 
 
@@ -66,5 +69,7 @@ void setup() {
 void loop() {
   if(WiFi.status() != WL_CONNECTED) {
     Serial.println("Wifi Disconnected!");
+    u8x8.clearDisplay();
+    u8x8.drawString(0, 0, "WiFi Disconnected.");
   }
 }
