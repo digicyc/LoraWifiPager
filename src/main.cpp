@@ -89,5 +89,7 @@ void loop() {
 
   if(WiFi.status() != WL_CONNECTED) {
     Serial.println("Wifi Disconnected!");
+    u8x8.clearDisplay();
+    u8x8.drawString(0, 0, "WiFi Disconnected.");
   }
 }
